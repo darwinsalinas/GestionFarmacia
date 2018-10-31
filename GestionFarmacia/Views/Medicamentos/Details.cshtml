@@ -1,0 +1,76 @@
+﻿@model Farmacia.Models.Medicamento
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Medicamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Presentacion.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Presentacion.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Existencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Existencia)
+        </dd>
+
+    </dl>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cantidad</th>
+                <th>Medicamento</th>
+                <th>Precio</th>
+                <th>Sub Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var venta in Model.Ventas)
+            {
+                <tr>
+                    <td>@venta.Cantidad</td>
+                    <td>@venta.Medicamento</td>
+                    <td>@venta.Precio</td>
+                    <td>@(@venta.Cantidad * @venta.Precio)</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+   
+
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,97 @@
+﻿@model Farmacia.Models.Venta
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles de la venta </h2>
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-warning">
+        <strong>Error</strong> @ViewBag.Error
+    </div>
+}
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            Total
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+    </dl>
+
+
+    <table class="table">
+        <thead class="" style="background-color: black; color: lightgray">
+            <tr>
+                <th>Cantidad</th>
+                <th>Medicamento</th>
+                <th>Precio</th>
+                <th>Sub Total</th>
+                <th><a id="addItemBtn" data-toggle="modal" data-target="#modalAddProduct" href="#" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></a></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var venta in Model.VentaDetalles)
+            {
+                <tr>
+                    <td>@venta.Cantidad</td>
+                    <td>@venta.Medicamento.Nombre</td>
+                    <td>@Html.DisplayFor(model => venta.Precio)</td>
+                    <td>@Html.DisplayFor(model => venta.SubTotal)</td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", "VentaDetalles", new { id = venta.Id }, null) |
+                        @Html.ActionLink("Detalles", "Details", "VentaDetalles", new { id = venta.Id }, null) |
+                        @Html.ActionLink("Eliminar", "Delete", "VentaDetalles", new { id = venta.Id }, null)
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+@Html.Partial("CreateDetalle", new Farmacia.Models.VentaDetalle())
+
+
+
+
+
+@section scripts {
+    <script type="text/javascript">
+        let $addItemBtn = document.getElementById('addItemBtn')
+        console.log($addItemBtn)
+
+
+    </script>
+}
