@@ -132,3 +132,4 @@ C:\Users\Grieslda\source\repos\GestionFarmacia\GestionFarmacia\obj\Debug\Gestion
 C:\Users\Grieslda\source\repos\GestionFarmacia\GestionFarmacia\obj\Debug\GestionFarmacia.csproj.CopyComplete
 C:\Users\Grieslda\source\repos\GestionFarmacia\GestionFarmacia\obj\Debug\GestionFarmacia.dll
 C:\Users\Grieslda\source\repos\GestionFarmacia\GestionFarmacia\obj\Debug\GestionFarmacia.pdb
+C:\Users\Grieslda\source\repos\GestionFarmacia\GestionFarmacia\obj\Debug\GestionFarmacia.csprojAssemblyReference.cache

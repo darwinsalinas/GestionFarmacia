@@ -53,7 +53,7 @@ namespace GestionFarmacia.Models
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "UserName")]
+        [Display(Name = "Usuario")]
         public string UserName { get; set; }
 
         [Required]
